@@ -2,6 +2,11 @@ from flask import Flask, render_template
 import joblib
 import pandas as pd
 import numpy as np
+import sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_boston
+from sklearn.model_selection import cross_val_score
+from sklearn.tree import DecisionTreeRegressor
 
 app = Flask(__name__) #create instance of the app
 
