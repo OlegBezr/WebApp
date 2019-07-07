@@ -10,11 +10,7 @@ app = Flask(__name__) #create instance of the app
 def index(): #function for app to call
 	model = joblib.load("regr.pkl")
 	info = pd.read_csv("info.csv")
-
 	predict_param = info.values.tolist()[0][1:]
-
-	print(predict_param)
-
 	prediction = np.squeeze(model.predict([predict_param]).round(1))
 	return render_template("index.html", prediction = prediction)
 
