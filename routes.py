@@ -8,6 +8,9 @@ from sklearn.datasets import load_boston
 from sklearn.model_selection import cross_val_score
 from sklearn.tree import DecisionTreeRegressor
 
+model = joblib.load("regr.pkl")
+info = pd.read_csv("info.csv")
+
 app = Flask(__name__) #create instance of the app
 
 @app.route("/") #path to our app after IP->Port
@@ -18,6 +21,4 @@ def index(): #function for app to call
 
 if __name__ == "__main__":
     #I save data for prediction in csv file
-	model = joblib.load("regr.pkl")
-	info = pd.read_csv("info.csv")
 	app.run(debug=True)
