@@ -5,6 +5,9 @@ import numpy as np
 
 app = Flask(__name__) #create instance of the app
 
+info = ''
+model = ''
+
 @app.route("/") #path to our app after IP->Port
 def index(): #function for app to call
 	predict_param = info.values.tolist()[0][1:]
